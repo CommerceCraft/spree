@@ -6,6 +6,8 @@ module Spree
     after_validation :set_card_type
 
     attr_accessor :number, :verification_value
+    # see https://github.com/spree/spree/commit/729c7a6dd0f95593ce01154953f763da71ad18d6
+    attr_accessor :track_data
 
     validates :month, :year, :numericality => { :only_integer => true }
     validates :number, :presence => true, :unless => :has_payment_profile?, :on => :create
